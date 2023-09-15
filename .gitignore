@@ -1,0 +1,22 @@
+# Binaries and build output
+bin/
+dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test and coverage artifacts
+*.test
+coverage.out
+coverage.html
+benchmark.txt
+
+# Editor files
+.DS_Store
+.idea/
+.vscode/
+
+# Module cache (optional)
+vendor/
