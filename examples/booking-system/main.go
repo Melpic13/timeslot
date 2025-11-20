@@ -14,7 +14,13 @@ func main() {
 		SetDay(time.Monday, availability.TimeRange{Start: availability.NewTimeOfDay(9, 0, 0), End: availability.NewTimeOfDay(17, 0, 0)})
 	p := provider.NewProvider("room-1", provider.WithWeeklySchedule(weekly), provider.WithBuffer(15*time.Minute))
 
-	from := time.Date(2025, 2, 3, 0, 0, 0, 0, time.UTC)
+	now := time.Now().UTC()
+	// Find the next Monday so this example continues to work over time.
+	daysUntilMonday := (int(time.Monday) - int(now.Weekday()) + 7) % 7
+	if daysUntilMonday == 0 {
+		daysUntilMonday = 7
+	}
+	from := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, time.UTC).AddDate(0, 0, daysUntilMonday)
 	to := from.Add(24 * time.Hour)
 	q := query.NewQuery().Duration(time.Hour).Between(from, to).Limit(3).Build()
 	slots, err := p.FindSlots(q)
