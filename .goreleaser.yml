@@ -1,8 +1,9 @@
+version: 2
 project_name: timeslot
 
 builds:
   - id: timeslot
-    main: ./
+    main: ./cmd/timeslot
     binary: timeslot
     env:
       - CGO_ENABLED=0
@@ -19,7 +20,10 @@ archives:
     formats: [tar.gz]
 
 checksum:
-  name_template: 'checksums.txt'
+  name_template: checksums.txt
+
+release:
+  prerelease: auto
 
 changelog:
   use: git

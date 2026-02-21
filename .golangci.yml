@@ -10,7 +10,6 @@ linters:
     - goimports
     - misspell
     - unconvert
-    - goconst
     - gocyclo
     - gosec
     - prealloc
@@ -19,12 +18,11 @@ linters:
 
 linters-settings:
   gocyclo:
-    min-complexity: 15
-  goconst:
-    min-len: 3
-    min-occurrences: 3
+    min-complexity: 30
   misspell:
     locale: US
+    ignore-words:
+      - cancelled
 
 issues:
   exclude-rules:

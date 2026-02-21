@@ -124,6 +124,7 @@ func Parse(r io.Reader) (*Calendar, error) {
 }
 
 func ParseFile(path string) (*Calendar, error) {
+	// #nosec G304 -- library API intentionally allows caller-supplied paths.
 	f, err := os.Open(path)
 	if err != nil {
 		return nil, err

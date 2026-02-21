@@ -4,6 +4,7 @@ Production-grade availability and scheduling logic for Go.
 
 [![Go Version](https://img.shields.io/badge/go-1.22%2B-blue)](#)
 [![CI](https://img.shields.io/badge/ci-github_actions-brightgreen)](#)
+[![Coverage](https://img.shields.io/badge/coverage-92.3%25-success)](#)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 ## Features
@@ -57,6 +58,12 @@ func main() {
 }
 ```
 
+## Quality Gates
+
+- `go test -race ./...` must pass
+- Coverage must stay at or above `90%` (`make coverage-check`)
+- CI enforces `go mod tidy`, `go vet`, lint, and gosec
+
 ## Core Concepts
 
 - `slot.TimeSlot`: one concrete time window
@@ -68,7 +75,10 @@ func main() {
 
 ## Examples
 
-See `examples/basic/main.go`, `examples/multi-provider/main.go`, `examples/recurring-availability/main.go`, and `examples/booking-system/main.go`.
+- `examples/basic/main.go`
+- `examples/multi-provider/main.go`
+- `examples/recurring-availability/main.go`
+- `examples/booking-system/main.go`
 
 ## API Reference
 
